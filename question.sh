@@ -40,7 +40,7 @@
 #  2014-09-01,A,3,100.4
 #
 #  >>> Escriba su codigo a partir de este punto <<<
-# sed 's/,/./g' data.csv > data1
+sed 's/,/./g' data.csv > data1
 sed 's/;/,/g' data1 > data2
 sed 's/\(\b[0-9]\/\)/0\1/' data2 > data3
 sed 's/\/\([0-9]\/\)/\/0\1/' data3 > data4
