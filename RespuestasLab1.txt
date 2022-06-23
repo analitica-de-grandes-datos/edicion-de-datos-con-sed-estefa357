@@ -1,0 +1,13 @@
+sed 's/,/./g' data.csv > data1
+sed 's/;/,/g' data1 > data2
+sed 's/\(\b[0-9]\/\)/0\1/' data2 > data3
+sed 's/\/\([0-9]\/\)/\/0\1/' data3 > data4
+sed 's/\/\([0-9][0-9]\),/\/20\1,/' data4 > data5
+sed 's/\([0-9][0-9]\)\/\([0-9][0-9]\)\/\([0-9][0-9][0-9][0-9]\)/\3-\2-\1/' data5 > data6
+sed '5 s/,,/,\\N,\\N/g' data6 > data7
+sed '6 s/,,n/,\\N,\\N/g' data7 > data8
+sed 'y/acn/ACN/' data8 > data9
+sed '7 s/N,/N,\\N/g' data9 > data10
+sed '4 s/,N,/,\\N,/g' data10 > output.csv
+
+
